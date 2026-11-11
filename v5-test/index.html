@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-180.png">
+<meta name="theme-color" content="#FF7A45">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="용돈박스">
+<title>ATM용돈박스</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:24px;background:#fff;font-family:-apple-system,'Noto Sans KR','Malgun Gothic',sans-serif;color:#222}
+h1{margin:0 0 18px;font-size:28px;font-weight:800}
+a.o{display:flex;align-items:center;gap:14px;width:100%;max-width:320px;padding:18px 20px;border-radius:16px;background:#F4F4F6;color:#222;font-weight:700;font-size:19px;text-decoration:none}
+a.o:active{background:#E6E6EA}
+i{width:14px;height:14px;border-radius:50%;flex:none}
+#inst{display:none;width:100%;max-width:320px;margin-top:10px;text-align:center;font-size:13px;line-height:1.55;color:#555}
+#inst button{width:100%;padding:13px;border:0;border-radius:14px;background:#222;color:#fff;font:700 15px/1 inherit;font-family:inherit}
+#inst b{color:#222}
+</style></head><body>
+<h1>ATM용돈박스</h1>
+<a class="o" href="box/"><i style="background:#4B6DBE"></i>박스형</a>
+<a class="o" href="machine/"><i style="background:#FF7A45"></i>기계형</a>
+<a class="o" href="party/"><i style="background:#FF3B4E"></i>잔치형</a>
+<a class="o" href="vault/"><i style="background:#C9A24B"></i>금고형</a>
+<div id="inst"></div>
+<script>
+if('serviceWorker' in navigator){ navigator.serviceWorker.register('sw.js').catch(function(){}); }
+(function(){
+  var standalone = (window.matchMedia && matchMedia('(display-mode: standalone)').matches) || navigator.standalone;
+  var box = document.getElementById('inst'); if(standalone) return;
+  var dp = null;
+  window.addEventListener('beforeinstallprompt', function(e){
+    e.preventDefault(); dp = e;
+    box.style.display='block'; box.innerHTML='<button id="ib">앱으로 설치하기</button><div style="margin-top:8px">설치하면 인터넷 없이도 4가지 화면이 열려요</div>';
+    document.getElementById('ib').onclick=function(){ dp.prompt(); dp.userChoice.then(function(){ box.style.display='none'; }); };
+  });
+  if(/iphone|ipad|ipod/i.test(navigator.userAgent)){
+    box.style.display='block';
+    box.innerHTML='<b>앱처럼 쓰려면</b><br>아래 공유 버튼(&#11014;&#65039;)을 누르고<br><b>"홈 화면에 추가"</b>를 눌러 주세요.<br>인터넷 없이도 4가지 화면이 열려요.';
+  }
+})();
+</script>
+</body></html>

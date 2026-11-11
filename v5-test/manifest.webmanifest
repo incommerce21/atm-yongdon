@@ -1,0 +1,15 @@
+{
+ "name": "ATM용돈박스",
+ "short_name": "용돈박스",
+ "description": "ATM용돈박스 4가지 화면 (박스형·기계형·잔치형·금고형)",
+ "start_url": "./",
+ "scope": "./",
+ "display": "standalone",
+ "orientation": "portrait",
+ "background_color": "#ffffff",
+ "theme_color": "#FF7A45",
+ "icons": [
+  {"src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable"},
+  {"src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable"}
+ ]
+}
