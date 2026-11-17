@@ -4,7 +4,7 @@
  "description": "ATM용돈박스 4가지 화면 (박스형·기계형·잔치형·금고형)",
  "start_url": "./",
  "scope": "./",
- "display": "standalone",
+ "display": "fullscreen",
  "orientation": "portrait",
  "background_color": "#ffffff",
  "theme_color": "#FF7A45",
