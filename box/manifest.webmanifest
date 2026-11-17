@@ -4,7 +4,7 @@
  "description": "ATM용돈박스 박스형",
  "start_url": "../",
  "scope": "../",
- "display": "standalone",
+ "display": "fullscreen",
  "orientation": "portrait",
  "background_color": "#4563B0",
  "theme_color": "#4563B0",
