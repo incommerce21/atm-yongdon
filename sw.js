@@ -1,5 +1,5 @@
 // ATM용돈박스: 4가지 화면(약 2MB)을 폰에 저장해 인터넷 없이도 열리게 함. 글꼴은 화면을 열 때 자동 저장.
-const V = 'yongdon-v2';
+const V = 'yongdon-v3';
 const FILES = ['./', 'index.html', 'manifest.webmanifest', 'icon-180.png', 'icon-192.png', 'icon-512.png'];
 ['box', 'machine', 'party', 'vault'].forEach(p => FILES.push(p + '/', p + '/index.html', p + '/manifest.webmanifest', p + '/icon-180.png', p + '/icon-192.png', p + '/icon-512.png'));
 self.addEventListener('install', e => {
