@@ -327,7 +327,8 @@ function fitBox(el, max, min){
 }
 
 function tryFullscreen(){
-  try{
+ 
+  return; /* 전체화면 안내문구 제거: 풀스크린 요청 안 함 */ try{
     var el = document.documentElement;
     var req = el.requestFullscreen || el.webkitRequestFullscreen;
     if(req){ var p = req.call(el); if(p && p.catch) p.catch(function(){}); }
