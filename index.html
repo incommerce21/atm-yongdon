@@ -28,7 +28,7 @@ i{width:14px;height:14px;border-radius:50%;flex:none}
 <script>
 if('serviceWorker' in navigator){ navigator.serviceWorker.register('sw.js').catch(function(){}); }
 (function(){
-  var standalone = (window.matchMedia && matchMedia('(display-mode: standalone)').matches) || navigator.standalone;
+  var standalone = (window.matchMedia && matchMedia('(display-mode: standalone)').matches) || (window.matchMedia && matchMedia('(display-mode: fullscreen)').matches) || navigator.standalone;
   var box = document.getElementById('inst'); if(standalone) return;
   var dp = null;
   window.addEventListener('beforeinstallprompt', function(e){
